@@ -2,5 +2,5 @@ require 'rubygems'
 require 'sinatra'
 
 get '/' do
-  "Start"
+  haml "== The time is #{Time.now}"
 end
