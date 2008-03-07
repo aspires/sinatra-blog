@@ -19,8 +19,8 @@ end
 
 # View an entry
 get '/entry/:slug' do
-  entry = DB[:entries][:slug => params[:slug]]
-  if entry
+  @entry = DB[:entries][:slug => params[:slug]]
+  if @entry
     haml :entry
   else
     status 404
