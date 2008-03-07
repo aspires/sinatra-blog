@@ -1,0 +1,7 @@
+%h1= @entry[:title]
+
+%p.metadata
+  Published on
+  %abbr{:title => @entry[:date_published].strftime("%Y-%m-%dT%H:%M:%SZ")}= @entry[:date_published].strftime("%B %d, %Y at %H:%M.")
+
+%p.contents= @entry[:contents]
