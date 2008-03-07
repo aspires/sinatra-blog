@@ -6,6 +6,7 @@ require 'json'
 # Connect to the database
 DB = Sequel.sqlite('blog.db')
 
+# Home page
 get '/' do
   haml :home
 end
