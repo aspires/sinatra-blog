@@ -15,3 +15,14 @@ get '/index.json' do
   entries = DB[:entries].all
   entries.to_json()
 end
+
+# Get an entry in JSON format
+get '/entry/:slug.json' do
+  entry = DB[:entries][:slug => params[:slug]]
+  if entry
+    body entry.to_json()
+  else
+    status 404
+    body nil.to_json()
+  end
+end
