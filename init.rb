@@ -5,7 +5,7 @@ require 'json'
 require 'yaml'
 
 # Load the configuration file.
-CONFIG = YAML.load_file('config.yml')
+CONFIG = YAML.load_file('config.yml') rescue (puts "There's no configuration file at config.yml!"; exit!)
 
 # Connect to the database
 DB = Sequel.sqlite('blog.db')
