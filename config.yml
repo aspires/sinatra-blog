@@ -1,0 +1,6 @@
+# Configuration file.
+
+administrator:                                              # About the administrator.
+  username: admin                                           # His username.
+  password: c26383045684cebff1f0516fcfdf5b212d4d0013        # The SHA-1 hash of the password + the salt. Digest::SHA1.hexdigest(password + salt)
+  salt: ClKOdHoLfiIUWwrFZIYeSTSFuRrCglPhoguXHUDpOUycIsHFen  # A randomly chosen string.
