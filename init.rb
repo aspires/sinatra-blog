@@ -5,9 +5,18 @@ require 'json'
 require 'yaml'
 
 # Load the configuration file.
-CONFIG = YAML.load_file('config.yml') rescue (puts "There's no configuration file at config.yml!"; exit!)
+if !File.exist?('config.yml')
+  puts "There's no configuration file at config.yml!"
+  exit!
+end
+CONFIG = YAML.load_file('config.yml')
 
 # Connect to the database
+if !File.exist?('config.yml')
+  puts "There's no database file at blog.db! Create an empty file called " +
+       "blog.db and run 'ruby create_db.rb' to create the database."
+  exit!
+end
 DB = Sequel.sqlite('blog.db')
 
 # Home page
