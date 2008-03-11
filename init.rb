@@ -12,7 +12,7 @@ end
 CONFIG = YAML.load_file('config.yml')
 
 # Connect to the database
-if !File.exist?('config.yml')
+if !File.exist?('blog.db')
   puts "There's no database file at blog.db! Create an empty file called " +
        "blog.db and run 'ruby create_db.rb' to create the database."
   exit!
