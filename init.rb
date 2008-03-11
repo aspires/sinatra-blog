@@ -2,6 +2,10 @@ require 'rubygems'
 require 'sinatra'
 require 'sequel'
 require 'json'
+require 'yaml'
+
+# Load the configuration file.
+CONFIG = YAML.load_file('config.yml')
 
 # Connect to the database
 DB = Sequel.sqlite('blog.db')
