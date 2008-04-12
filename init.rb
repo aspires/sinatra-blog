@@ -24,14 +24,21 @@ get '/' do
   haml :home
 end
 
-# Get all the entries in JSON format
-get '/index.json' do
+## Entries
+# GET    /entries       => Get a list of all entries.
+# POST   /entries/new   => Create a new entry.
+# GET    /entries/slug  => Retrieve an entry.
+# PUT    /entries/slug  => Update an entry.
+# DELETE /entries/slug  => Delete an entry.
+
+# Get a list of all entries as JSON.
+get '/entries.json' do
   entries = DB[:entries].all
   entries.to_json()
 end
 
-# View an entry
-get '/entry/:slug' do
+# Retrieve an entry as HTML.
+get '/entries/:slug' do
   @entry = DB[:entries][:slug => params[:slug]]
   if @entry
     haml :entry
@@ -42,8 +49,8 @@ get '/entry/:slug' do
   end
 end
 
-# Get an entry in JSON format
-get '/entry/:slug.json' do
+# Retrieve an entry as JSON.
+get '/entries/:slug.json' do
   entry = DB[:entries][:slug => params[:slug]]
   if entry
     body entry.to_json()
