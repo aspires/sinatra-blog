@@ -1,3 +1,6 @@
+# This file initializes our Sinatra-powered blog.
+
+# Require the necessary libraries.
 require 'rubygems'
 require 'sinatra'
 require 'sequel'
@@ -19,43 +22,5 @@ if !File.exist?('blog.db')
 end
 DB = Sequel.sqlite('blog.db')
 
-# Home page
-get '/' do
-  haml :home
-end
-
-## Entries
-# GET    /entries       => Get a list of all entries.
-# POST   /entries/new   => Create a new entry.
-# GET    /entries/slug  => Retrieve an entry.
-# PUT    /entries/slug  => Update an entry.
-# DELETE /entries/slug  => Delete an entry.
-
-# Get a list of all entries as JSON.
-get '/entries.json' do
-  entries = DB[:entries].all
-  entries.to_json()
-end
-
-# Retrieve an entry as HTML.
-get '/entries/:slug' do
-  @entry = DB[:entries][:slug => params[:slug]]
-  if @entry
-    haml :entry
-  else
-    status 404
-    #haml :notfound -- TODO: Create a not found page.
-    body "Entry not found."
-  end
-end
-
-# Retrieve an entry as JSON.
-get '/entries/:slug.json' do
-  entry = DB[:entries][:slug => params[:slug]]
-  if entry
-    body entry.to_json()
-  else
-    status 404
-    body nil.to_json()
-  end
-end
+# Load the pages we can display.
+load './pages.rb'
