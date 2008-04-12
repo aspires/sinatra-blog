@@ -3,8 +3,25 @@
 %form#entry{:method => 'post', :action => '/entries/create'}
 
   %ul
+
     %li#title
       %label{:for => 'entry_title'} Title:
       %input{:type => 'text', :id => 'entry_title', :name => 'title'}
+
+    %li#slug
+      %label{:for => 'entry_slug'} Slug:
+      %input{:type => 'text', :id => 'entry_slug', :name => 'slug'}
+
+    %li#description
+      %label{:for => 'entry_description'} Description:
+      %textarea{:id => 'entry_description', :name => 'description', :cols => 80, :rows => 5}= ""
+
+    %li#contents
+      %label{:for => 'entry_contents'} Contents:
+      %textarea{:id => 'entry_contents', :name => 'contents', :cols => 80, :rows => 15}= ""
+
+    %li#state
+      %label{:for => 'entry_state'} State:
+      %input{:type => 'text', :id => 'entry_state', :name => 'state'}
 
   %input{:type => 'submit', :value => 'Create a new entry.'}
