@@ -1,1 +1,10 @@
-TODO
+%h1 Write a new entry
+
+%form#entry{:method => 'post', :action => '/entries/create'}
+
+  %ul
+    %li#title
+      %label{:for => 'entry_title'} Title:
+      %input{:type => 'text', :id => 'entry_title', :name => 'title'}
+
+  %input{:type => 'submit', :value => 'Create a new entry.'}
