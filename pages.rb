@@ -8,16 +8,22 @@ get '/' do
 end
 
 ## The entries.
-# GET    /entries       => Get a list of all entries.
-# POST   /entries/new   => Create a new entry.
-# GET    /entries/slug  => Retrieve an entry.
-# PUT    /entries/slug  => Update an entry.
-# DELETE /entries/slug  => Delete an entry.
+# GET    /entries        => Get a list of all entries.
+# GET    /entries/new    => Get information on how to create a new entry.
+# POST   /entries/create => Create a new entry.
+# GET    /entries/slug   => Retrieve an entry.
+# PUT    /entries/slug   => Update an entry.
+# DELETE /entries/slug   => Delete an entry.
 
 # Get a list of all entries, as JSON.
 get '/entries.json' do
   entries = DB[:entries].all
   entries.to_json()
+end
+
+# Get a form to create a new entry, as HTML.
+get '/entries/new' do
+  haml :new
 end
 
 # Retrieve an entry, as HTML.
