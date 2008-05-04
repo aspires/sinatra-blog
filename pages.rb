@@ -82,10 +82,13 @@ end
 
 # Update an entry.
 put '/entries/:slug' do
-  @entry = DB[:entries][:slug => params[:slug]]
+  @entry = Entry[:slug => params[:slug]]
   if @entry
-    #[:title, :slug, :description, :contents, :state].each { |key| @entry[key] = params[key] }
-    #@entry.save -- TODO: This requires that @entry is a Sequel::Model.
+    [:title, :slug, :description, :contents, :state].each do |key|
+      @entry[key] = params[key]
+    end
+    @entry.save # TODO: Check if everything's ok.
+    redirect "/entries/#{@entry[:slug]}"
   else
     status 404
     #haml :notfound -- TODO: Create a not found page.
