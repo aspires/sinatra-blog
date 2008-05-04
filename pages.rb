@@ -79,3 +79,16 @@ get '/entries/:slug/edit' do
     body "Entry not found."
   end
 end
+
+# Update an entry.
+put '/entries/:slug' do
+  @entry = DB[:entries][:slug => params[:slug]]
+  if @entry
+    #[:title, :slug, :description, :contents, :state].each { |key| @entry[key] = params[key] }
+    #@entry.save -- TODO: This requires that @entry is a Sequel::Model.
+  else
+    status 404
+    #haml :notfound -- TODO: Create a not found page.
+    body "Entry not found."
+  end
+end
