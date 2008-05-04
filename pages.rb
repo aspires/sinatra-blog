@@ -18,7 +18,7 @@ end
 
 # Get a list of all entries, as JSON.
 get '/entries.json' do
-  body Entry.all.collect { |e| e.values }.to_json()
+  body Entry.all.to_json
 end
 
 # Get a form to create a new entry, as HTML.
@@ -60,10 +60,10 @@ end
 get '/entries/:slug.json' do
   entry = Entry[:slug => params[:slug]]
   if entry
-    body entry.values.to_json()
+    body entry.to_json
   else
     status 404
-    body nil.to_json()
+    body nil.to_json
   end
 end
 
