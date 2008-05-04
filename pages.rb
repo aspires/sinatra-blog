@@ -70,5 +70,12 @@ end
 
 # Get a form to update an entry, as HTML.
 get '/entries/:slug/edit' do
-  haml :edit
+  @entry = DB[:entries][:slug => params[:slug]]
+  if @entry
+    haml :edit
+  else
+    status 404
+    #haml :notfound -- TODO: Create a not found page.
+    body "Entry not found."
+  end
 end
