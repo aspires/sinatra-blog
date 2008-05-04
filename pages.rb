@@ -10,7 +10,7 @@ end
 ## The entries.
 # - GET    /entries            => Get a list of all entries.
 # - GET    /entries/new        => Get information on how to create a new entry.
-#   POST   /entries/create     => Create a new entry.
+#   POST   /entries/new        => Create a new entry.
 # - GET    /entries/:slug      => Retrieve an entry.
 # - GET    /entries/:slug/edit => Get information on how to update an entry.
 #   PUT    /entries/:slug      => Update an entry.
@@ -28,7 +28,7 @@ get '/entries/new' do
 end
 
 # Create a new entry.
-post '/entries/create' do
+post '/entries/new' do
   # Default attributes.
   attributes = {:title => "No title set",
                 :slug => "entry-" + Time.now.to_i.to_s,
