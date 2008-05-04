@@ -1,7 +1,7 @@
 %h1= @entry.title
 
 %p.metadata
-  Published on
-  %abbr{:title => @entry.date_published.strftime("%Y-%m-%dT%H:%M:%SZ")}= @entry.date_published.strftime("%B %d, %Y at %H:%M.")
+  Published
+  %abbr{:title => @entry.date_published_iso8601}= @entry.date_published_human + "."
 
 %p.contents= @entry.contents
