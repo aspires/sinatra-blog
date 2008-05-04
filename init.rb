@@ -22,5 +22,7 @@ if !File.exist?('blog.db')
 end
 DB = Sequel.sqlite('blog.db')
 
-# Load the pages we can display.
+# Create the models.
+require './models.rb'
+# Load the pages.
 load './pages.rb'
