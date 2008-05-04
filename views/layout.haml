@@ -3,4 +3,17 @@
   %head
     %title My blog
   %body
+
+    #header
+      %h1 My blog
+
     = yield
+
+    #footer
+      %p
+        / The Creative Commons License
+        %span{:href => 'http://purl.org/dc/dcmitype/Text', :rel => 'dc:type', 'xmlns:dc' => 'http://purl.org/dc/elements/1.1/' }
+          All texts on this site
+        are licensed under a
+        %a{:href => 'http://creativecommons.org/licenses/by-sa/3.0/', :rel => 'license'}
+          Creative Commons Attribution-Share Alike 3.0 License.
