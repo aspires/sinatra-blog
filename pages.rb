@@ -18,8 +18,7 @@ end
 
 # Get a list of all entries, as JSON.
 get '/entries.json' do
-  entries = DB[:entries].all
-  entries.to_json()
+  body Entry.all.collect { |e| e.values }.to_json()
 end
 
 # Get a form to create a new entry, as HTML.
@@ -41,13 +40,13 @@ post '/entries/new' do
   # Overwrite the defaults with the parameters given in the request. HTTP
   # parameters that aren't defined in the above hash will be ignored.
   attributes.each { |key, value| attributes[key] = params[key] || value }
-  DB[:entries].insert(attributes)
+  Entry.create(attributes)
   body "/entries/#{attributes[:slug]}"
 end
 
 # Retrieve an entry, as HTML.
 get '/entries/:slug' do
-  @entry = DB[:entries][:slug => params[:slug]]
+  @entry = Entry[:slug => params[:slug]]
   if @entry
     haml :entry
   else
@@ -59,9 +58,9 @@ end
 
 # Retrieve an entry, as JSON.
 get '/entries/:slug.json' do
-  entry = DB[:entries][:slug => params[:slug]]
+  entry = Entry[:slug => params[:slug]]
   if entry
-    body entry.to_json()
+    body entry.values.to_json()
   else
     status 404
     body nil.to_json()
@@ -70,7 +69,7 @@ end
 
 # Get a form to update an entry, as HTML.
 get '/entries/:slug/edit' do
-  @entry = DB[:entries][:slug => params[:slug]]
+  @entry = Entry[:slug => params[:slug]]
   if @entry
     haml :edit
   else
