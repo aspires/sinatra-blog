@@ -8,13 +8,13 @@ get '/' do
 end
 
 ## The entries.
-# - GET    /entries              => Get a list of all entries.
-# - GET    /entries/new          => Get information on how to create a new entry.
-#   POST   /entries/create       => Create a new entry.
-# - GET    /entries/:slug        => Retrieve an entry.
-# - GET    /entries/:slug/edit   => Get information on how to update an entry.
-#   PUT    /entries/:slug/update => Update an entry.
-# - DELETE /entries/:slug/delete => Delete an entry.
+# - GET    /entries            => Get a list of all entries.
+# - GET    /entries/new        => Get information on how to create a new entry.
+#   POST   /entries/create     => Create a new entry.
+# - GET    /entries/:slug      => Retrieve an entry.
+# - GET    /entries/:slug/edit => Get information on how to update an entry.
+#   PUT    /entries/:slug      => Update an entry.
+# - DELETE /entries/:slug      => Delete an entry.
 
 # Get a list of all entries, as JSON.
 get '/entries.json' do
