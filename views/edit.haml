@@ -1,6 +1,6 @@
 %h1 Edit an entry
 
-%form#entry{:method => 'post', :action => '/entries/' + @entry[:slug]}
+%form#entry{:method => 'post', :action => '/entries/' + @entry.slug}
 
   %input{:type => 'hidden', :name => '_method', :value => 'put'}
 
@@ -8,24 +8,24 @@
 
     %li#title
       %label{:for => 'entry_title'} Title:
-      %input{:type => 'text', :id => 'entry_title', :name => 'title', :value => @entry[:title]}
+      %input{:type => 'text', :id => 'entry_title', :name => 'title', :value => @entry.title}
 
     %li#slug
       %label{:for => 'entry_slug'} Slug:
-      %input{:type => 'text', :id => 'entry_slug', :name => 'slug', :value => @entry[:slug]}
+      %input{:type => 'text', :id => 'entry_slug', :name => 'slug', :value => @entry.slug}
 
     %li#description
       %label{:for => 'entry_description'} Description:
-      %textarea{:id => 'entry_description', :name => 'description', :cols => 80, :rows => 5}= @entry[:description]
+      %textarea{:id => 'entry_description', :name => 'description', :cols => 80, :rows => 5}= @entry.description
 
     %li#contents
       %label{:for => 'entry_contents'} Contents:
-      %textarea{:id => 'entry_contents', :name => 'contents', :cols => 80, :rows => 15}= @entry[:contents]
+      %textarea{:id => 'entry_contents', :name => 'contents', :cols => 80, :rows => 15}= @entry.contents
 
     %li#state
       %label{:for => 'entry_state'} State:
       %select{:id => 'entry_state', :name => 'state'}
-        %option{:value => 'D', :selected => (@entry[:state] == 'D' ? 'selected' : "")} Draft
-        %option{:value => 'P', :selected => (@entry[:state] == 'P' ? 'selected' : "")} Published
+        %option{:value => 'D', :selected => (@entry.state == 'D' ? 'selected' : "")} Draft
+        %option{:value => 'P', :selected => (@entry.state == 'P' ? 'selected' : "")} Published
 
   %input{:type => 'submit', :value => 'Save entry.'}
