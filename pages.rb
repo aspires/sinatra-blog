@@ -67,3 +67,8 @@ get '/entries/:slug.json' do
     body nil.to_json()
   end
 end
+
+# Get a form to update an entry, as HTML.
+get '/entries/:slug/edit' do
+  haml :edit
+end
