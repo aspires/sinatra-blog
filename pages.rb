@@ -7,6 +7,11 @@ get '/' do
   haml :home
 end
 
+# The stylesheet, as CSS.
+get '/style.css' do
+  sass :style
+end
+
 ## The entries.
 # - GET    /entries            => Get a list of all entries.
 # - GET    /entries/new        => Get information on how to create a new entry.
