@@ -17,4 +17,12 @@ class Entry < Sequel::Model
     date_published.strftime("on %B %d, %Y at %H:%M")
   end
 
+  # Returns a string containing a serialized version of this object in JSON
+  # format.
+  def to_json
+    attributes = self.values
+    attributes[:date_published] = self.date_published_iso8601
+    return attributes.to_json
+  end
+
 end
