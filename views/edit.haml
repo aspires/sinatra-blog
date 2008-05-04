@@ -1,6 +1,8 @@
 %h1 Edit an entry
 
-%form#entry{:method => 'put', :action => '/entries/' + @entry[:slug]}
+%form#entry{:method => 'post', :action => '/entries/' + @entry[:slug]}
+
+  %input{:type => 'hidden', :name => '_method', :value => 'put'}
 
   %ul
 
