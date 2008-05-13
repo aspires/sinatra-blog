@@ -6,7 +6,10 @@ require 'rubygems'
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/vendor/sinatra/lib')
 require 'sinatra'
 
+$LOAD_PATH.unshift(File.dirname(__FILE__) + '/vendor/sequel/sequel_core/lib',
+                   File.dirname(__FILE__) + '/vendor/sequel/sequel/lib')
 require 'sequel'
+
 require 'json'
 require 'yaml'
 
