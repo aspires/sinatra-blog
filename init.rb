@@ -2,7 +2,10 @@
 
 # Require the necessary libraries.
 require 'rubygems'
+
+$LOAD_PATH.unshift(File.dirname(__FILE__) + '/vendor/sinatra/lib')
 require 'sinatra'
+
 require 'sequel'
 require 'json'
 require 'yaml'
