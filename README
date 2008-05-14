@@ -1,26 +1,27 @@
-"I did it my way." - Sinatra
+"I did it my way." - Sinatra, and many others.
 
-= sinatra-blog
-Or, this needs a name.
+= sss(e)
+Simple, Stylish, Sinatra (Experimental)
 
 This is a blog powered by Sinatra, not the singer, but the web framework
 (http://sinatrarb.com). It is small – very small – based on the REST principles
 (yay for RESTfulness!), easy, and – most importantly – fun! OK, maybe it's not
 fun. Maybe it will be. Or maybe not. We'll see. Maybe.
 
-This thing, without a name for now (any suggestions are welcome), is also an
-experiment. Consequence: it doesn't work. Well, do be completely honest, it may
-actually work. But it may also refuse to even _start_ working for you. It's not
-your slave, you can't command it to do anything. Free will and all that. So,
-it's not for the easily frustrated. Try it out on a free Sunday afternoon, at
-least, if that's the kind of thing you're into on a Sunday afternoon.
+sss(e) is also an experiment. Consequence: it doesn't work. Well, do be
+completely honest, it may actually work. But it may also refuse to even _start_
+working for you. It's not your slave, you can't command it to do anything. Free
+will and all that. So, it's not for the easily frustrated. Try it out on a free
+Sunday afternoon, at least, if that's the kind of thing you're into on a Sunday
+afternoon.
 
 == How does it work?
 I currently don't have much time to make detailed descriptions of blogging
 engines I haven't even written yet, but this may interest you:
 
-* sinatra-blog uses Sinatra (http://sinatrarb.com).
-* It uses Sequel to connect to a database (http://code.google.com/p/ruby-sequel/).
+* sss(e) uses Sinatra (http://sinatrarb.com).
+* It uses Sequel to connect to a database
+  (http://code.google.com/p/ruby-sequel/).
 * At this moment, you *have* to use SQLite, your database will be in the file
   blog.db. You can create the database running "ruby create_db.rb" in the
   command line.
