@@ -29,6 +29,6 @@ end
 DB = Sequel.sqlite('blog.db')
 
 # Create the models.
-require './models.rb'
-# Load the pages.
-load './pages.rb'
+Dir["app/models/*.rb"].each { |x| require x }
+# Load the controllers.
+Dir["app/controllers/*.rb"].each { |x| load x }
