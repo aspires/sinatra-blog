@@ -14,7 +14,23 @@ class Entry < Sequel::Model
     #       and             foreign_key :type_id, :table => :types
   end
 
-  # Overwrite the default Entry.create, so when attributes are not given the
+  # Use the default value for any column that is still nil or empty when we're
+  # creating a new entry.
+  after_initialize do
+    if @new
+      {:title => "No title set",
+       :slug => "entry-" + Time.now.to_i.to_s,
+       :description => "",
+       :contents => "",
+       :state => "D",
+       :date_published => Time.now,
+       :user_id => 1,
+       :type_id => 1
+      }.each do |key, value|
+        @values[key] = value if @values[key].nil? or @values[key].empty?
+      end
+    end
+  end
 
   # Returns the date an entry was published according to the ISO 8601 standard,
   # in the form [YYYY]-[MM]-[DD]T[hh]:[mm]Z

@@ -19,20 +19,8 @@ end
 
 # Create a new entry.
 post '/entries/new' do
-  # Default attributes.
-  attributes = {:title => "No title set",
-                :slug => "entry-" + Time.now.to_i.to_s,
-                :description => "",
-                :contents => "",
-                :state => "D",
-                :date_published => Time.now,
-                :user_id => 1,
-                :type_id => 1}
-  # Overwrite the defaults with the parameters given in the request. HTTP
-  # parameters that aren't defined in the above hash will be ignored.
-  attributes.each { |key, value| attributes[key] = params[key] || value }
-  Entry.create(attributes)
-  body "/entries/#{attributes[:slug]}"
+  @entry = Entry.create(params)
+  body "/entries/#{@entry.slug}"
 end
 
 # Retrieve an entry, as HTML.
