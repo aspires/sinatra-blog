@@ -8,6 +8,8 @@ DB = Sequel.sqlite('blog.db')
 #   CREATE TABLE entries (id integer PRIMARY KEY AUTOINCREMENT, title text,
 #   slug text, description blob, contents blob, state varchar(1),
 #   date_published timestamp, user_id integer, type_id integer);
+# FIXME: This is also defined in Entry. There's no need to write down all the
+# columns twice.
 DB.create_table :entries do
   primary_key :id,             :integer
   column      :title,          :text
