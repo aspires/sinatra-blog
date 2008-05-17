@@ -1,6 +1,20 @@
 class Entry < Sequel::Model
   set_dataset     DB[:entries]
-  set_primary_key :id
+  set_schema do
+    primary_key :id,             :integer
+    column      :title,          :text
+    column      :slug,           :text
+    column      :description,    :blob
+    column      :contents,       :blob
+    column      :state,          :varchar,      :size => 1
+    column      :date_published, :timestamp
+    column      :user_id,        :integer
+    column      :type_id,        :integer
+    # TODO: Should become   foreign_key :user_id, :table => :users
+    #       and             foreign_key :type_id, :table => :types
+  end
+
+  # Overwrite the default Entry.create, so when attributes are not given the
 
   # Returns the date an entry was published according to the ISO 8601 standard,
   # in the form [YYYY]-[MM]-[DD]T[hh]:[mm]Z
