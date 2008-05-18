@@ -31,6 +31,12 @@ configure do
     exit!
   end
   DB = Sequel.sqlite('blog.db')
+
+  # Set the not found page.
+  not_found do
+    status 404
+    haml :notfound
+  end
 end
 
 # Create the models.
