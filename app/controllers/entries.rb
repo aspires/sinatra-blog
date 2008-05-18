@@ -30,8 +30,7 @@ get '/entries/:slug' do
     haml :entry
   else
     status 404
-    #haml :notfound -- TODO: Create a not found page.
-    body "Entry not found."
+    haml :notfound
   end
 end
 
@@ -53,8 +52,7 @@ get '/entries/:slug/edit' do
     haml :edit
   else
     status 404
-    #haml :notfound -- TODO: Create a not found page.
-    body "Entry not found."
+    haml :notfound
   end
 end
 
@@ -69,7 +67,6 @@ put '/entries/:slug' do
     redirect "/entries/#{@entry[:slug]}"
   else
     status 404
-    #haml :notfound -- TODO: Create a not found page.
-    body "Entry not found."
+    haml :notfound
   end
 end
