@@ -35,9 +35,9 @@ end
 
 # Retrieve an entry, as JSON.
 get '/entries/:slug.json' do
-  entry = Entry[:slug => params[:slug]]
+  @entry = Entry[:slug => params[:slug]]
   if entry
-    body entry.to_json
+    body @entry.to_json
   else
     status 404
     body nil.to_json
