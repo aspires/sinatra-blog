@@ -29,8 +29,7 @@ get '/entries/:slug' do
   if @entry
     haml :entry
   else
-    status 404
-    haml :notfound
+    raise Sinatra::NotFound
   end
 end
 
@@ -51,8 +50,7 @@ get '/entries/:slug/edit' do
   if @entry
     haml :edit
   else
-    status 404
-    haml :notfound
+    raise Sinatra::NotFound
   end
 end
 
@@ -67,6 +65,6 @@ put '/entries/:slug' do
     redirect "/entries/#{@entry[:slug]}"
   else
     status 404
-    haml :notfound
+    body nil
   end
 end
