@@ -33,6 +33,29 @@ configure do
   DB = Sequel.sqlite('blog.db')
 end
 
+helpers do
+
+  # Use this helper to make not found page a bit easier to display. It abstracts
+  # away some of the common code for all "Not found" responses, for example
+  # setting the status code to 404.
+  #
+  # If a block is given, this executes the block (yielding <tt>self</tt>, a
+  # Sinatra::EventContext). Else, if the <tt>content</tt> parameter is not nil,
+  # this renders <tt>content</tt> (using #body). Otherwise, it renders
+  # <tt>notfound.haml</tt>.
+  def not_found(content = nil)
+    status 404
+    if block_given?
+      yield self
+    elsif content
+      body content
+    else
+      haml :notfound
+    end
+  end
+
+end
+
 # Set the not found page.
 not_found do
   status 404
