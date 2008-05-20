@@ -33,12 +33,11 @@ end
 # Retrieve an entry, as JSON.
 get '/entries/:slug.json' do
   @entry = Entry[:slug => params[:slug]]
-  if entry
-    body @entry.to_json
-  else
+  if !@entry
     status 404
     body nil.to_json
   end
+  body @entry.to_json
 end
 
 # Get a form to update an entry, as HTML.
@@ -51,14 +50,13 @@ end
 # Update an entry.
 put '/entries/:slug' do
   @entry = Entry[:slug => params[:slug]]
-  if @entry
-    [:title, :slug, :description, :contents, :state].each do |key|
-      @entry[key] = params[key]
-    end
-    @entry.save # TODO: Check if everything's ok.
-    redirect "/entries/#{@entry[:slug]}"
-  else
+  if !@entry
     status 404
     body nil
   end
+  [:title, :slug, :description, :contents, :state].each do |key|
+    @entry[key] = params[key]
+  end
+  @entry.save # TODO: Check if everything's ok.
+  redirect "/entries/#{@entry[:slug]}"
 end
