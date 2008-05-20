@@ -26,11 +26,8 @@ end
 # Retrieve an entry, as HTML.
 get '/entries/:slug' do
   @entry = Entry[:slug => params[:slug]]
-  if @entry
-    haml :entry
-  else
-    raise Sinatra::NotFound
-  end
+  raise Sinatra::NotFound if !@entry
+  haml :entry
 end
 
 # Retrieve an entry, as JSON.
@@ -47,11 +44,8 @@ end
 # Get a form to update an entry, as HTML.
 get '/entries/:slug/edit' do
   @entry = Entry[:slug => params[:slug]]
-  if @entry
-    haml :edit
-  else
-    raise Sinatra::NotFound
-  end
+  raise Sinatra::NotFound if !@entry
+  haml :edit
 end
 
 # Update an entry.
