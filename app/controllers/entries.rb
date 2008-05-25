@@ -6,6 +6,18 @@
 # - GET    /entries/:slug/edit => Get information on how to update an entry.
 #   PUT    /entries/:slug      => Update an entry.
 # - DELETE /entries/:slug      => Delete an entry.
+#
+# FIXME: Shouldn't we return "405 Method Not Allowed" when requesting a URI that
+# doesn't support the method given. The HTTP specification (HTTP/1.1, RFC 2616,
+# page 66, http://www.ietf.org/rfc/rfc2616.txt) says:
+#   10.4.6 405 Method Not Allowed
+#     The method specified in the Request-Line is not allowed for the
+#     resource identified by the Request-URI. The response MUST include an
+#     Allow header containing a list of valid methods for the requested
+#     resource.
+# So, when for example a DELETE request is sent to /entries/new, a PUT request
+# to /entries or a POST to /entries/:slug, maybe we should sent back a 405 error
+# with an Allow header listing the allowed methods.
 
 # Get a list of all entries, as JSON.
 get '/entries.json' do
