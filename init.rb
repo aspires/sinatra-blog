@@ -40,23 +40,23 @@ helpers do
   # setting the status code to 404.
   #
   # If a block is given, this executes the block (yielding <tt>self</tt>, a
-  # Sinatra::EventContext). Else, if the <tt>content</tt> parameter is not nil,
-  # this renders <tt>content</tt> (using #body). Otherwise, it renders
-  # <tt>notfound.haml</tt>.
+  # Sinatra::EventContext), and renders it result (using #stop). Else, if the
+  # <tt>content</tt> parameter is not nil, this renders <tt>content</tt> (using
+  # #stop). Otherwise, it renders <tt>notfound.haml</tt>.
   def not_found(content = nil)
     status 404
     if block_given?
-      yield self
+      stop yield(self)
     elsif content
-      body content
+      stop content
     else
-      haml :notfound
+      stop haml(:notfound)
     end
   end
 
 end
 
-# Set the not found page.
+# Set the not found page for URIs that don't match to any specified route.
 not_found do
   status 404
   haml :notfound

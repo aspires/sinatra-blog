@@ -38,34 +38,28 @@ end
 # Retrieve an entry, as HTML.
 get '/entries/:slug' do
   @entry = Entry[:slug => params[:slug]]
-  raise Sinatra::NotFound if !@entry
+  not_found if !@entry
   haml :entry
 end
 
 # Retrieve an entry, as JSON.
 get '/entries/:slug.json' do
   @entry = Entry[:slug => params[:slug]]
-  if !@entry
-    status 404
-    body nil.to_json
-  end
+  not_found(nil.to_json) if !@entry
   body @entry.to_json
 end
 
 # Get a form to update an entry, as HTML.
 get '/entries/:slug/edit' do
   @entry = Entry[:slug => params[:slug]]
-  raise Sinatra::NotFound if !@entry
+  not_found if !@entry
   haml :edit
 end
 
 # Update an entry.
 put '/entries/:slug' do
   @entry = Entry[:slug => params[:slug]]
-  if !@entry
-    status 404
-    body nil
-  end
+  not_found("") if !@entry
   [:title, :slug, :description, :contents, :state].each do |key|
     @entry[key] = params[key]
   end
