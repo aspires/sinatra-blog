@@ -19,6 +19,12 @@
 # to /entries or a POST to /entries/:slug, maybe we should sent back a 405 error
 # with an Allow header listing the allowed methods.
 
+# Get a list of all entries, as HTML.
+get '/entries' do
+  @entries = Entry.all
+  haml :archive
+end
+
 # Get a list of all entries, as JSON.
 get '/entries.json' do
   body Entry.all.to_json

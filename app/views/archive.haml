@@ -1,0 +1,12 @@
+%h1 All entries
+
+%ol
+  - for entry in @entries
+    %li.entry
+      %h3.title= entry.title
+      %p.metadata
+        Published on
+        %abbr{:title => entry.date_published_iso8601}= entry.date_published_human + "."
+      %p.description= entry.description
+      %p.readmore
+        %a{:href => entry.permalink} Read more...
