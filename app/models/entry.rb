@@ -32,6 +32,11 @@ class Entry < Sequel::Model
     end
   end
 
+  # Returns the permalink to this entry.
+  def permalink
+    "/entries/#{slug}"
+  end
+
   # Returns the date an entry was published according to the ISO 8601 standard,
   # in the form [YYYY]-[MM]-[DD]T[hh]:[mm]Z
   def date_published_iso8601
