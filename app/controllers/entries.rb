@@ -33,6 +33,8 @@ end
 post '/entries/new' do
   @entry = Entry.create(params)
   body "/entries/#{@entry.slug}"
+  # FIXME: We could -- no, should -- return a "201 Created" status code here.
+  # See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.2
 end
 
 # Retrieve an entry, as HTML.
