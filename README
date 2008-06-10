@@ -27,3 +27,10 @@ engines I haven't even written yet, but this may interest you:
   command line.
 * There's some preliminary configuration in config.yml.
 * We also use JSON a lot, most REST actions can respond in both HTML and JSON.
+
+== Other cool things
+* Camping (http://code.whytheluckystiff.net/camping/): A small web framework by
+  _why, that makes it easy to implement little applications, like a blog.
+* Reststop (http://reststop.rubyforge.org/) is a library on top of camping, that
+  makes it easy to write RESTful applications in Camping. For a blog implemented
+  in Reststop, see http://reststop.rubyforge.org/svn/trunk/examples/blog.rb.
