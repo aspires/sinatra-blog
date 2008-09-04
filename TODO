@@ -1,0 +1,4 @@
+Some things to do:
+* Change the folder structure.
+  (app/models/* -> app/models.rb; app/controllers/* -> app/controllers.rb ???)
+* Move create_db.rb into a Rakefile.
