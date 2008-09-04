@@ -28,6 +28,24 @@ engines I haven't even written yet, but this may interest you:
 * There's some preliminary configuration in config.yml.
 * We also use JSON a lot, most REST actions can respond in both HTML and JSON.
 
+== Installing
+SQLite is needed, along with libsqlite. On Ubuntu try running
+  $ sudo apt-get install libsqlite3-ruby
+
+Sinatra and Sequel are packaged with sss(e). When using the Git version, however
+you need to load them first, as Git submodules, using the following command:
+  $ git submodule init && git submodule update
+
+You may also need to install the metaid, json and mongrel gems, run:
+  $ gem install metaid json sqlite mongrel
+
+Afterwards, run
+  $ ruby init.rb
+to start sss(e). Any errors will be reported.
+
+If you have trouble installing, and then find out how to fix your problems,
+consider changing this README to reflect the changes. Thank you!
+
 == Other cool things
 * Camping (http://code.whytheluckystiff.net/camping/): A small web framework by
   _why, that makes it easy to implement little applications, like a blog.
