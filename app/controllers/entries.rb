@@ -38,9 +38,11 @@ end
 # Create a new entry.
 post '/entries/new' do
   @entry = Entry.create(params)
+  # 201 Created, with a Location header pointing to the created resource. See
+  # http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.2
+  status 201
+  header 'Location' => "/entries/#{@entry.slug}"
   body "/entries/#{@entry.slug}"
-  # FIXME: We could -- no, should -- return a "201 Created" status code here.
-  # See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.2
 end
 
 # Retrieve an entry, as HTML.
