@@ -1,4 +1,17 @@
-Some things to do:
+Some small things to do:
 * Change the folder structure.
   (app/models/* -> app/models.rb; app/controllers/* -> app/controllers.rb ???)
 * Move create_db.rb into a Rakefile.
+* Take a look Sinatra Starter Kit (http://github.com/mikker/sinatra_starter_kit)
+  and steal some ideas (directory structure, config/application.[rb|ru], rake..)
+* Take a look at Wink, a blogging engine in Ruby using Rack, Sinatra, and
+  DataMapper, by Ryan Tomayko. (http://github.com/rtomayko/wink)
+* Merge changes made by a-priori on GitHub.
+
+Some other important things missing:
+* Authentication
+* Comments
+* Tagging
+* Search
+* Feeds
+* A goal for this project
