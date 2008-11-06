@@ -52,3 +52,8 @@ consider changing this README to reflect the changes. Thank you!
 * Reststop (http://reststop.rubyforge.org/) is a library on top of camping, that
   makes it easy to write RESTful applications in Camping. For a blog implemented
   in Reststop, see http://reststop.rubyforge.org/svn/trunk/examples/blog.rb.
+* Wink (http://github.com/rtomayko/wink/tree/master): A minimalist blogging
+  engine written in Ruby using Rack, Sinatra, and DataMapper, by Ryan Tomayko.
+  (Currently marked as unmaintained.)
+* Sinatra Starter Kit (http://github.com/mikker/sinatra_starter_kit/tree/master):
+  A starting point for Sinatra apps. Might have to steal some ideas there.
