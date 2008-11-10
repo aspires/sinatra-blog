@@ -59,3 +59,5 @@ consider changing this README to reflect the changes. Thank you!
   DataMapper, by Ryan Tomayko. (Currently marked as unmaintained.)
 * Sinatra Starter Kit (http://github.com/mikker/sinatra_starter_kit/tree/master)
   A starting point for Sinatra apps. Might have to steal some ideas there.
+* Scanty (http://github.com/adamwiggins/scanty/tree/master)
+  A small blogging engine written in Ruby using Sinatra and Sequel.
